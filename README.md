@@ -40,7 +40,7 @@ cd pdf-toolkit
 ### 3. Install Dependencies with uv
 
 ```bash
-uv init
+uv sync
 ```
 
 Or install dependencies directly:
