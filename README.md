@@ -1,17 +1,17 @@
 # PDF Toolkit
 
-Alat komprehensif untuk manipulasi file PDF dengan Python. Program ini menggabungkan fitur penghapusan halaman dan penggabungan PDF dalam satu file yang mudah digunakan.
+A comprehensive tool for PDF file manipulation with Python. This program combines page deletion and PDF merging features in one easy-to-use file.
 
-## 📋 Fitur
+## 📋 Features
 
-- **Remove Pages**: Hapus halaman tertentu dari PDF
-- **Append**: Tambahkan halaman PDF di akhir dokumen lain
-- **Prepend**: Tambahkan halaman PDF di awal dokumen lain
-- **Insert**: Sisipkan halaman PDF pada posisi tertentu
-- **Merge Multiple**: Gabungkan beberapa file PDF menjadi satu
-- **PDF Info**: Lihat informasi file PDF (jumlah halaman, metadata)
+- **Remove Pages**: Delete specific pages from a PDF
+- **Append**: Add PDF pages at the end of another document
+- **Prepend**: Add PDF pages at the beginning of another document
+- **Insert**: Insert PDF pages at a specific position
+- **Merge Multiple**: Combine multiple PDF files into one
+- **PDF Info**: View PDF file information (page count, metadata)
 
-## 🚀 Instalasi
+## 🚀 Installation
 
 ### 1. Install uv (Package Manager)
 
@@ -25,7 +25,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-Atau install via pip:
+Or install via pip:
 ```bash
 pip install uv
 ```
@@ -37,21 +37,20 @@ git clone https://github.com/yokoberek/pdf-toolkit.git
 cd pdf-toolkit
 ```
 
-### 3. Install Dependencies dengan uv
+### 3. Install Dependencies with uv
 
 ```bash
 uv init
 ```
 
-Atau install dependencies secara langsung:
+Or install dependencies directly:
 ```bash
 uv add PyPDF2
 ```
 
-## 📖 Cara Penggunaan
+## 📖 Usage
 
-### Syntax Umum
-
+### General Syntax
 
 ```bash
 uv run main.py <command> [arguments]
@@ -59,124 +58,124 @@ uv run main.py <command> [arguments]
 
 ---
 
-## 🔧 Perintah-Perintah
+## 🔧 Commands
 
-### 1. Remove - Hapus Halaman
+### 1. Remove - Delete Pages
 
-Hapus halaman tertentu dari PDF.
+Delete specific pages from a PDF.
 
 **Syntax:**
 ```bash
 uv run main.py remove <input.pdf> <output.pdf> <pages>
 ```
 
-**Contoh:**
+**Examples:**
 ```bash
-# Hapus halaman 1, 3, dan 5
+# Delete pages 1, 3, and 5
 uv run main.py remove document.pdf cleaned.pdf 1,3,5
 
-# Hapus halaman 2 saja
+# Delete page 2 only
 uv run main.py remove document.pdf cleaned.pdf 2
 ```
 
-**Keterangan:**
-- `input.pdf`: File PDF asli
-- `output.pdf`: File PDF hasil (tanpa halaman yang dihapus)
-- `pages`: Nomor halaman yang akan dihapus (dipisah koma, tanpa spasi)
+**Parameters:**
+- `input.pdf`: Original PDF file
+- `output.pdf`: Output PDF file (without deleted pages)
+- `pages`: Page numbers to delete (comma-separated, no spaces)
 
 ---
 
-### 2. Append - Tambah di Akhir
+### 2. Append - Add at End
 
-Tambahkan halaman PDF di akhir dokumen lain.
+Add PDF pages at the end of another document.
 
 **Syntax:**
 ```bash
 uv run main.py append <base.pdf> <add.pdf> <output.pdf>
 ```
 
-**Contoh:**
+**Example:**
 ```bash
 uv run main.py append document1.pdf document2.pdf merged.pdf
 ```
 
-**Keterangan:**
-- `base.pdf`: File PDF dasar
-- `add.pdf`: File PDF yang akan ditambahkan di akhir
-- `output.pdf`: File PDF hasil gabungan
+**Parameters:**
+- `base.pdf`: Base PDF file
+- `add.pdf`: PDF file to be added at the end
+- `output.pdf`: Merged PDF output file
 
 ---
 
-### 3. Prepend - Tambah di Awal
+### 3. Prepend - Add at Beginning
 
-Tambahkan halaman PDF di awal dokumen lain.
+Add PDF pages at the beginning of another document.
 
 **Syntax:**
 ```bash
 uv run main.py prepend <base.pdf> <add.pdf> <output.pdf>
 ```
 
-**Contoh:**
+**Example:**
 ```bash
 uv run main.py prepend document1.pdf cover.pdf with_cover.pdf
 ```
 
-**Keterangan:**
-- File `add.pdf` akan ditempatkan di awal sebelum `base.pdf`
+**Parameters:**
+- The `add.pdf` file will be placed at the beginning before `base.pdf`
 
 ---
 
-### 4. Insert - Sisipkan di Posisi Tertentu
+### 4. Insert - Insert at Specific Position
 
-Sisipkan halaman PDF pada posisi tertentu.
+Insert PDF pages at a specific position.
 
 **Syntax:**
 ```bash
 uv run main.py insert <base.pdf> <add.pdf> <output.pdf> <position>
 ```
 
-**Contoh:**
+**Example:**
 ```bash
-# Sisipkan di halaman ke-3
+# Insert at page 3
 uv run main.py insert document.pdf insert.pdf result.pdf 3
 ```
 
-**Keterangan:**
-- `position`: Nomor halaman dimana file akan disisipkan (mulai dari 1)
-- File `add.pdf` akan disisipkan sebelum halaman tersebut
+**Parameters:**
+- `position`: Page number where the file will be inserted (starting from 1)
+- The `add.pdf` file will be inserted before that page
 
 ---
 
-### 5. Multiple - Gabungkan Banyak File
+### 5. Multiple - Merge Multiple Files
 
-Gabungkan beberapa file PDF menjadi satu.
+Combine multiple PDF files into one.
 
 **Syntax:**
 ```bash
 uv run main.py multiple <output.pdf> <file1.pdf> <file2.pdf> <file3.pdf> ...
 ```
 
-**Contoh:**
+**Example:**
 ```bash
 uv run main.py multiple final.pdf doc1.pdf doc2.pdf doc3.pdf doc4.pdf
 ```
 
-**Keterangan:**
-- File akan digabungkan sesuai urutan yang diberikan
-- Bisa menggabungkan 2 file atau lebih
+**Parameters:**
+- Files will be merged in the order provided
+- Can merge 2 or more files
 
 ---
 
-### 6. Info - Lihat Informasi PDF
+### 6. Info - View PDF Information
 
-Tampilkan informasi tentang file PDF.
+Display information about a PDF file.
 
 **Syntax:**
 ```bash
 uv run main.py info <input.pdf>
 ```
 
-**Contoh:**
+**Example:**
 ```bash
 uv run main.py info document.pdf
 ```
@@ -196,9 +195,9 @@ Metadata:
 
 ---
 
-### 7. Help - Bantuan
+### 7. Help - Get Help
 
-Tampilkan bantuan dan daftar perintah.
+Display help and list of commands.
 
 **Syntax:**
 ```bash
@@ -207,110 +206,110 @@ uv run main.py help
 
 ---
 
-## 💡 Contoh Penggunaan Lengkap
+## 💡 Complete Usage Examples
 
-### Skenario 1: Membersihkan Dokumen
+### Scenario 1: Cleaning a Document
 ```bash
-# Hapus halaman kosong (halaman 5, 8, 12)
-uv run main.py remove laporan.pdf laporan_bersih.pdf 5,8,12
+# Remove blank pages (pages 5, 8, 12)
+uv run main.py remove report.pdf clean_report.pdf 5,8,12
 ```
 
-### Skenario 2: Membuat Laporan Lengkap
+### Scenario 2: Creating a Complete Report
 ```bash
-# 1. Tambahkan cover di awal
-uv run main.py prepend isi_laporan.pdf cover.pdf temp1.pdf
+# 1. Add cover at the beginning
+uv run main.py prepend report_content.pdf cover.pdf temp1.pdf
 
-# 2. Tambahkan lampiran di akhir
-uv run main.py append temp1.pdf lampiran.pdf temp2.pdf
+# 2. Add appendix at the end
+uv run main.py append temp1.pdf appendix.pdf temp2.pdf
 
-# 3. Sisipkan daftar isi di posisi 2
-uv run main.py insert temp2.pdf daftar_isi.pdf laporan_final.pdf 2
+# 3. Insert table of contents at position 2
+uv run main.py insert temp2.pdf table_of_contents.pdf final_report.pdf 2
 ```
 
-### Skenario 3: Menggabungkan Beberapa Bab
+### Scenario 3: Merging Multiple Chapters
 ```bash
-uv run main.py multiple buku_lengkap.pdf \
+uv run main.py multiple complete_book.pdf \
     cover.pdf \
-    kata_pengantar.pdf \
-    bab1.pdf \
-    bab2.pdf \
-    bab3.pdf \
-    penutup.pdf
+    preface.pdf \
+    chapter1.pdf \
+    chapter2.pdf \
+    chapter3.pdf \
+    conclusion.pdf
 ```
 
-### Skenario 4: Workflow Kompleks
+### Scenario 4: Complex Workflow
 ```bash
-# 1. Cek info file asli
-uv run main.py info dokumen_asli.pdf
+# 1. Check original file info
+uv run main.py info original_document.pdf
 
-# 2. Hapus halaman yang tidak perlu
-uv run main.py remove dokumen_asli.pdf dokumen_edited.pdf 1,5,10
+# 2. Remove unnecessary pages
+uv run main.py remove original_document.pdf edited_document.pdf 1,5,10
 
-# 3. Tambahkan halaman baru
-uv run main.py append dokumen_edited.pdf halaman_baru.pdf dokumen_final.pdf
+# 3. Add new pages
+uv run main.py append edited_document.pdf new_pages.pdf final_document.pdf
 ```
 
 ---
 
-## 🐍 Penggunaan sebagai Module Python
+## 🐍 Usage as Python Module
 
-Anda juga bisa menggunakan script ini sebagai module dalam kode Python Anda:
+You can also use this script as a module in your Python code:
 
 ```python
 from main import PDFToolkit
 
-# Inisialisasi toolkit
+# Initialize toolkit
 toolkit = PDFToolkit()
 
-# Hapus halaman
+# Remove pages
 toolkit.remove_pages('input.pdf', 'output.pdf', [1, 3, 5])
 
-# Gabungkan PDF (append)
+# Merge PDFs (append)
 toolkit.merge_pdfs('doc1.pdf', 'doc2.pdf', 'merged.pdf', position='append')
 
-# Sisipkan PDF
+# Insert PDF
 toolkit.merge_pdfs('base.pdf', 'insert.pdf', 'result.pdf', 
                    position='insert', page_number=3)
 
-# Gabungkan banyak file
+# Merge multiple files
 toolkit.merge_multiple(['file1.pdf', 'file2.pdf', 'file3.pdf'], 'output.pdf')
 
-# Lihat info PDF
+# View PDF info
 info = toolkit.get_pdf_info('document.pdf')
-print(f"Total halaman: {info['pages']}")
+print(f"Total pages: {info['pages']}")
 ```
 
 ---
 
-## 🎯 Tips & Trik
+## 🎯 Tips & Tricks
 
-### 1. Penomoran Halaman
-- Halaman dimulai dari **1** (bukan 0)
-- Halaman 1 adalah halaman pertama dalam PDF
+### 1. Page Numbering
+- Pages start from **1** (not 0)
+- Page 1 is the first page in the PDF
 
-### 2. Format Nomor Halaman untuk Remove
+### 2. Page Number Format for Remove
 ```bash
-# Benar ✓
+# Correct ✓
 python main.py remove doc.pdf out.pdf 1,3,5,7
 
-# Salah ✗
-python main.py remove doc.pdf out.pdf 1, 3, 5, 7  # Ada spasi
+# Wrong ✗
+python main.py remove doc.pdf out.pdf 1, 3, 5, 7  # Has spaces
 ```
 
-### 3. Backup File Asli
-Selalu backup file PDF asli sebelum melakukan manipulasi:
+### 3. Backup Original Files
+Always backup the original PDF file before manipulation:
 ```bash
-cp dokumen_asli.pdf dokumen_asli_backup.pdf
+cp original_document.pdf original_document_backup.pdf
 ```
 
-### 4. Periksa File Output
-Gunakan perintah `info` untuk memverifikasi hasil:
+### 4. Check Output Files
+Use the `info` command to verify results:
 ```bash
 python main.py info output.pdf
 ```
 
 ### 5. Batch Processing
-Untuk memproses banyak file, buat script bash:
+To process multiple files, create a bash script:
 ```bash
 #!/bin/bash
 for file in *.pdf; do
@@ -318,8 +317,8 @@ for file in *.pdf; do
 done
 ```
 
-### 6. Menggunakan uv run
-Untuk environment yang terisolasi, gunakan `uv run`:
+### 6. Using uv run
+For an isolated environment, use `uv run`:
 ```bash
 uv run main.py remove document.pdf cleaned.pdf 1,3,5
 ```
@@ -329,48 +328,48 @@ uv run main.py remove document.pdf cleaned.pdf 1,3,5
 ## ⚠️ Troubleshooting
 
 ### Error: "ModuleNotFoundError: No module named 'PyPDF2'"
-**Solusi:**
+**Solution:**
 ```bash
-# Dengan uv
+# With uv
 uv add PyPDF2
 
-# Atau dengan pip biasa
+# Or with regular pip
 pip install PyPDF2
 ```
 
 ### Error: "uv: command not found"
-**Solusi:**
-Install uv terlebih dahulu:
+**Solution:**
+Install uv first:
 ```bash
 # Linux/macOS
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# atau via pip
+# or via pip
 pip install uv
 ```
 
 ### Error: "File not found"
-**Solusi:**
-- Pastikan nama file dan path benar
-- Gunakan path lengkap jika file ada di folder lain
+**Solution:**
+- Make sure the filename and path are correct
+- Use the full path if the file is in another folder
 ```bash
 uv run main.py remove /home/user/docs/file.pdf output.pdf 1
 ```
 
 ### Error: "Permission denied"
-**Solusi:**
-- Pastikan file tidak sedang dibuka di aplikasi lain
-- Periksa permission file dengan `ls -l`
+**Solution:**
+- Make sure the file is not open in another application
+- Check file permissions with `ls -l`
 
-### Output PDF Kosong atau Error
-**Kemungkinan Penyebab:**
-1. PDF input terproteksi/encrypted
-2. Nomor halaman melebihi total halaman
-3. PDF corrupt atau rusak
+### Empty or Error Output PDF
+**Possible Causes:**
+1. Input PDF is protected/encrypted
+2. Page number exceeds total pages
+3. PDF is corrupt or damaged
 
 ### Error: "git: command not found"
-**Solusi:**
-Install Git terlebih dahulu:
+**Solution:**
+Install Git first:
 ```bash
 # Ubuntu/Debian
 sudo apt install git
@@ -379,41 +378,41 @@ sudo apt install git
 brew install git
 
 # Windows
-# Download dari https://git-scm.com/
+# Download from https://git-scm.com/
 ```
 
 ---
 
-## 📝 Catatan Penting
+## 📝 Important Notes
 
-1. **Enkripsi**: Script ini tidak dapat memproses PDF yang dienkripsi/dilindungi password
-2. **Ukuran File**: Untuk file PDF sangat besar (>100MB), proses mungkin memakan waktu
-3. **Metadata**: Metadata dari PDF asli akan dipertahankan setelah proses
-4. **Format**: Script mendukung semua jenis PDF standar (v1.3 - v1.7)
-
----
-
-## 🤝 Kontribusi
-
-Jika Anda menemukan bug atau punya saran untuk fitur baru:
-
-1. Fork repository ini
-2. Buat branch baru (`git checkout -b feature/AmazingFeature`)
-3. Commit perubahan Anda (`git commit -m 'Add some AmazingFeature'`)
-4. Push ke branch (`git push origin feature/AmazingFeature`)
-5. Buat Pull Request
+1. **Encryption**: This script cannot process encrypted/password-protected PDFs
+2. **File Size**: For very large PDF files (>100MB), processing may take time
+3. **Metadata**: Metadata from the original PDF will be preserved after processing
+4. **Format**: The script supports all standard PDF types (v1.3 - v1.7)
 
 ---
 
-## 📄 Lisensi
+## 🤝 Contributing
 
-Script ini berbasis [MIT License](./LICENSE) sehingga bebas digunakan untuk keperluan pribadi maupun komersial.
+If you find a bug or have suggestions for new features:
+
+1. Fork this repository
+2. Create a new branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Create a Pull Request
+
+---
+
+## 📄 License
+
+This script is based on the [MIT License](./LICENSE) so it's free to use for personal or commercial purposes.
 
 ---
 
 ## 👨‍💻 Developer
 
-Dibuat untuk mempermudah manipulasi file PDF dalam workflow sehari-hari.
+Created to simplify PDF file manipulation in daily workflows.
 
 **Repository:** [https://github.com/yokoberek/pdf-toolkit](https://github.com/yokoberek/pdf-toolkit)
 
@@ -422,11 +421,11 @@ Dibuat untuk mempermudah manipulasi file PDF dalam workflow sehari-hari.
 - uv (Package Manager)
 - PyPDF2
 
-**Versi:** 1.0.0
+**Version:** 1.0.0
 
 ---
 
-## 📚 Referensi
+## 📚 References
 
 - [uv Documentation](https://docs.astral.sh/uv/)
 - [PyPDF2 Documentation](https://pypdf2.readthedocs.io/)
@@ -437,10 +436,10 @@ Dibuat untuk mempermudah manipulasi file PDF dalam workflow sehari-hari.
 ## 🔄 Update Log
 
 ### Version 1.0.0 (2024)
-- ✅ Fitur remove pages
-- ✅ Fitur merge (append, prepend, insert)
-- ✅ Fitur merge multiple files
-- ✅ Fitur info PDF
+- ✅ Remove pages feature
+- ✅ Merge feature (append, prepend, insert)
+- ✅ Merge multiple files feature
+- ✅ PDF info feature
 - ✅ Command-line interface
 - ✅ Python module support
 
