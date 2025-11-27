@@ -435,7 +435,7 @@ Created to simplify PDF file manipulation in daily workflows.
 
 ## 🔄 Update Log
 
-### Version 1.0.0 (2024)
+### Version 1.0.0 (2025)
 - ✅ Remove pages feature
 - ✅ Merge feature (append, prepend, insert)
 - ✅ Merge multiple files feature
