@@ -221,49 +221,49 @@ PDF Toolkit - Comprehensive PDF Manipulation Tool
 ================================================
 
 USAGE:
-    python pdf_toolkit.py <command> [arguments]
+    uv run main.py <command> [arguments]
 
 COMMANDS:
 
 1. remove - Remove specific pages from a PDF
-   Usage: python pdf_toolkit.py remove <input.pdf> <output.pdf> <pages>
-   Example: python pdf_toolkit.py remove document.pdf cleaned.pdf 1,3,5
+   Usage: uv run main.py remove <input.pdf> <output.pdf> <pages>
+   Example: uv run main.py remove document.pdf cleaned.pdf 1,3,5
    
 2. append - Add PDF pages to the end of another PDF
-   Usage: python pdf_toolkit.py append <base.pdf> <add.pdf> <output.pdf>
-   Example: python pdf_toolkit.py append doc1.pdf doc2.pdf merged.pdf
+   Usage: uv run main.py append <base.pdf> <add.pdf> <output.pdf>
+   Example: uv run main.py append doc1.pdf doc2.pdf merged.pdf
    
 3. prepend - Add PDF pages to the beginning of another PDF
-   Usage: python pdf_toolkit.py prepend <base.pdf> <add.pdf> <output.pdf>
-   Example: python pdf_toolkit.py prepend doc1.pdf doc2.pdf merged.pdf
+   Usage: uv run main.py prepend <base.pdf> <add.pdf> <output.pdf>
+   Example: uv run main.py prepend doc1.pdf doc2.pdf merged.pdf
    
 4. insert - Insert PDF pages at a specific position
-   Usage: python pdf_toolkit.py insert <base.pdf> <add.pdf> <output.pdf> <position>
-   Example: python pdf_toolkit.py insert doc1.pdf doc2.pdf merged.pdf 3
+   Usage: uv run main.py insert <base.pdf> <add.pdf> <output.pdf> <position>
+   Example: uv run main.py insert doc1.pdf doc2.pdf merged.pdf 3
    
 5. multiple - Merge multiple PDF files into one
-   Usage: python pdf_toolkit.py multiple <output.pdf> <file1.pdf> <file2.pdf> ...
-   Example: python pdf_toolkit.py multiple merged.pdf doc1.pdf doc2.pdf doc3.pdf
+   Usage: uv run main.py multiple <output.pdf> <file1.pdf> <file2.pdf> ...
+   Example: uv run main.py multiple merged.pdf doc1.pdf doc2.pdf doc3.pdf
    
 6. info - Get information about a PDF file
-   Usage: python pdf_toolkit.py info <input.pdf>
-   Example: python pdf_toolkit.py info document.pdf
+   Usage: uv run main.py info <input.pdf>
+   Example: uv run main.py info document.pdf
 
 7. help - Show this help message
-   Usage: python pdf_toolkit.py help
+   Usage: uv run main.py help
 
 EXAMPLES:
     # Remove pages 2, 4, and 6 from a PDF
-    python pdf_toolkit.py remove input.pdf output.pdf 2,4,6
+    uv run main.py remove input.pdf output.pdf 2,4,6
     
     # Append two PDFs
-    python pdf_toolkit.py append first.pdf second.pdf combined.pdf
+    uv run main.py append first.pdf second.pdf combined.pdf
     
     # Insert pages at position 5
-    python pdf_toolkit.py insert main.pdf insert.pdf result.pdf 5
+    uv run main.py insert main.pdf insert.pdf result.pdf 5
     
     # Merge multiple PDFs
-    python pdf_toolkit.py multiple final.pdf doc1.pdf doc2.pdf doc3.pdf
+    uv run main.py multiple final.pdf doc1.pdf doc2.pdf doc3.pdf
     """
     print(help_text)
 
@@ -282,9 +282,7 @@ def main():
         if command == "remove":
             if len(sys.argv) < 5:
                 print("Error: Missing arguments for remove command")
-                print(
-                    "Usage: python pdf_toolkit.py remove <input.pdf> <output.pdf> <pages>"
-                )
+                print("Usage: uv run main.py remove <input.pdf> <output.pdf> <pages>")
                 sys.exit(1)
 
             input_pdf = sys.argv[2]
@@ -298,9 +296,7 @@ def main():
         elif command == "append":
             if len(sys.argv) < 5:
                 print("Error: Missing arguments for append command")
-                print(
-                    "Usage: python pdf_toolkit.py append <base.pdf> <add.pdf> <output.pdf>"
-                )
+                print("Usage: uv run main.py append <base.pdf> <add.pdf> <output.pdf>")
                 sys.exit(1)
 
             base_pdf = sys.argv[2]
@@ -314,9 +310,7 @@ def main():
         elif command == "prepend":
             if len(sys.argv) < 5:
                 print("Error: Missing arguments for prepend command")
-                print(
-                    "Usage: python pdf_toolkit.py prepend <base.pdf> <add.pdf> <output.pdf>"
-                )
+                print("Usage: uv run main.py prepend <base.pdf> <add.pdf> <output.pdf>")
                 sys.exit(1)
 
             base_pdf = sys.argv[2]
@@ -331,7 +325,7 @@ def main():
             if len(sys.argv) < 6:
                 print("Error: Missing arguments for insert command")
                 print(
-                    "Usage: python pdf_toolkit.py insert <base.pdf> <add.pdf> <output.pdf> <position>"
+                    "Usage: uv run main.py insert <base.pdf> <add.pdf> <output.pdf> <position>"
                 )
                 sys.exit(1)
 
@@ -350,7 +344,7 @@ def main():
             if len(sys.argv) < 4:
                 print("Error: Missing arguments for multiple command")
                 print(
-                    "Usage: python pdf_toolkit.py multiple <output.pdf> <file1.pdf> <file2.pdf> ..."
+                    "Usage: uv run main.py multiple <output.pdf> <file1.pdf> <file2.pdf> ..."
                 )
                 sys.exit(1)
 
@@ -364,7 +358,7 @@ def main():
         elif command == "info":
             if len(sys.argv) < 3:
                 print("Error: Missing argument for info command")
-                print("Usage: python pdf_toolkit.py info <input.pdf>")
+                print("Usage: uv run main.py info <input.pdf>")
                 sys.exit(1)
 
             pdf_file = sys.argv[2]
@@ -385,7 +379,7 @@ def main():
 
         else:
             print(f"Error: Unknown command '{command}'")
-            print("Use 'python pdf_toolkit.py help' for usage information")
+            print("Use 'uv run main.py help' for usage information")
             sys.exit(1)
 
     except Exception as e:
